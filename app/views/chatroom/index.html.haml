@@ -1,0 +1,27 @@
+%h2.ui.center.aligned.icon.header
+  %i.circular.blue.comments.inverted.icon
+  Say Something
+
+.ui.two.column.grid
+  .twelve.wide.column
+    .ui.fluid.raised.chatbox.card
+      #messages.content
+        #message-container.ui.feed
+          = render @messages
+      .extra.content
+        = form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path, remote: true) do |f|
+          .field
+            .ui.fluid.icon.input
+              = f.text_field :body, autocomplete: "off"
+              = f.button '<i class="bordered inverted orange arrow up icon"></i>'.html_safe
+
+  .four.wide.column
+    .ui.fluid.raised.chatbox.card
+      .content
+        .ui.inverted.vertical.menu
+          %a.active.item
+            Home
+          %a.item
+            Messages
+          %a.item
+            Friends

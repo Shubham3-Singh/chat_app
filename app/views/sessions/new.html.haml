@@ -1,0 +1,27 @@
+%h1.ui.center.aligned.header
+  Welcome to MessageMe
+  %i - a complete Chat App
+%h2.ui.center.aligned.icon.header
+  %i.circular.power.off.orange.icon
+  Login to continue
+.ui.placeholder.segment
+  .ui.two.column.very.relaxed.stackable.grid
+    .column
+      = form_for(:session, html: {class: "ui form", role: "form"}, url: login_path) do |f|
+        .field
+          %label Username
+          .ui.left.icon.input
+            = f.text_field :username, :placeholder => "Username"
+            %i.user.icon
+        .field
+          %label Password
+          .ui.left.icon.input
+            = f.text_field :password_digest, :placeholder => "Password"
+            %i.lock.icon
+        = f.button "Login", class: "ui orange submit button"
+    .middle.aligned.column
+      .ui.big.orange.button
+        %i.signup.icon
+        Sign Up
+  .ui.vertical.divider
+    Or
